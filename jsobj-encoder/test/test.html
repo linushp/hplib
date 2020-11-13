@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jsobjEncoder</title>
+    <script src="../index.js"></script>
+</head>
+<body>
+
+<script>
+    var jsobjEncoder = window.jsobjEncoder;
+    var str1 = jsobjEncoder.encodeObject({name:'你好zhang',age:30});
+    console.log(str1);
+    var obj1 = jsobjEncoder.decodeObject(str1);
+    console.log(obj1);
+</script>
+
+</body>
+</html>
