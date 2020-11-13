@@ -1,11 +1,19 @@
 {
-  "name": "@hplib/jsobj-encoder",
+  "name": "jsobj-encoder",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linushp/hplib.git"
+  },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/linushp/hplib/issues"
+  },
+  "homepage": "https://github.com/linushp/hplib#readme"
 }
