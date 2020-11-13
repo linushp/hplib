@@ -48,8 +48,11 @@
 
     var jsobjEncoder = {
         encodeObject: encodeObject,
-        decodeObject: decodeObject
+        decodeObject: decodeObject,
     };
+
+    jsobjEncoder['__esModule'] = true;
+    jsobjEncoder['default'] = jsobjEncoder;
 
     if (typeof module !== 'undefined') {
         module.exports = jsobjEncoder;
