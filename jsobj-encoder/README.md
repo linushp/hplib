@@ -2,16 +2,19 @@
 
 ## description
 
-> 将js对象转换成无特殊字符的字符串，内部使用base64实现，但去除了末尾的等于号
-> 支持nodejs端和浏览器端调用
+```
+ 将js对象转换成无特殊字符的字符串
+ 内部使用base64实现，但去除了末尾的等于号
+ 支持nodejs端和浏览器端调用
+```
 
 
 ## install
 
 ```
-   npm install @hplib/jsobj-encoder
+   npm i jsobj-encoder
    or
-   yarn add @hplib/jsobj-encoder
+   yarn add jsobj-encoder
 ```
 
 ## usage
