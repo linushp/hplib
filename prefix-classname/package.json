@@ -1,0 +1,21 @@
+{
+  "name": "hplib-classname",
+  "version": "1.0.0",
+  "description": "主要是在开发公共组件时，需要前缀区分的时候使用",
+  "main": "prefix-classname.js",
+  "types": "prefix-classname.d.ts",
+  "typings": "prefix-classname.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linushp/hplib.git"
+  },
+  "author": "luanhaipeng",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/linushp/hplib/issues"
+  },
+  "homepage": "https://github.com/linushp/hplib#readme"
+}
