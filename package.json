@@ -3,7 +3,6 @@
   "version": "0.0.2",
   "private": true,
   "scripts": {
-    "lint-staged:js": "eslint  --ext .js,.jsx,.ts,.tsx --fix"
   },
   "main": "",
   "dist": {},
@@ -11,11 +10,6 @@
     "packages": [
       "packages/*"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "lint-staged": {
     "**/*.{less,md,json}": [
