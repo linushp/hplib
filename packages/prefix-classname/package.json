@@ -1,6 +1,6 @@
 {
   "name": "hplib-classname",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "主要是在开发公共组件时，需要前缀区分的时候使用",
   "main": "prefix-classname.js",
   "types": "prefix-classname.d.ts",
