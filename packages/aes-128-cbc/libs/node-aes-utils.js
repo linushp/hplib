@@ -18,17 +18,46 @@ class Aes128CBC {
     this._iv = hex2Uint8Array(ivStr || "808ce75f6ea37c071fe8075887717594");
   }
 
-  encrypt(data) {
+
+  
+  encrypt(data: Buffer): Buffer {
     const cipher = crypto.createCipheriv("aes-128-cbc", this._key, this._iv);
-    cipher.update(data);
-    return cipher.final(); //Buffer
+    let encrypted = Buffer.alloc(0);
+    const chunkSize = 1024;
+    for (let i = 0; i < data.length; i += chunkSize) {
+      const chunk = data.slice(i, i + chunkSize);
+      encrypted = Buffer.concat([encrypted, cipher.update(chunk)]);
+    }
+    encrypted = Buffer.concat([encrypted, cipher.final()]);
+    return encrypted;
   }
 
-  decrypt(data) {
+  decrypt(encryptedData: Buffer): Buffer {
     const decipher = crypto.createDecipheriv("aes-128-cbc", this._key, this._iv);
-    decipher.update(data);
-    return decipher.final(); //Buffer
+
+    let decrypted = Buffer.alloc(0);
+    const chunkSize = 1024;
+    for (let i = 0; i < encryptedData.length; i += chunkSize) {
+      const chunk = encryptedData.slice(i, i + chunkSize);
+      decrypted = Buffer.concat([decrypted, decipher.update(chunk)]);
+    }
+    decrypted = Buffer.concat([decrypted, decipher.final()]);
+    return decrypted;
   }
+
+  encrypt_utf8_base64(utf8Str: string): string {
+    const inputBuffer = Buffer.from(utf8Str, 'utf8');
+    const outputBuffer = this.encrypt(inputBuffer);
+    return outputBuffer.toString('base64');
+  }
+
+  decrypt_base64_utf8(base64: string): string {
+    const inputBuffer = Buffer.from(base64, 'base64');
+    const outputBuffer = this.decrypt(inputBuffer);
+    return outputBuffer.toString('utf8');
+  }
+
+  
 }
 
 module.exports = {
