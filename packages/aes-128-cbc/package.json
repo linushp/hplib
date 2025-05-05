@@ -1,6 +1,6 @@
 {
-  "name": "aes128cbc",
-  "version": "1.0.0",
+  "name": "aes-128-cbc",
+  "version": "1.0.4",
   "description": "",
   "main": "./libs/node-aes-utils.js",
   "browser": "./libs/web-aes-utils.js",
