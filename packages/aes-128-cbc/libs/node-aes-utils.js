@@ -19,6 +19,13 @@ function arrayBufferToBase64(arrayBuffer) {
   }
   return btoa(binary);
 }
+
+
+function bufferToArrayBuffer(buffer) {
+  return buffer.buffer.slice(buffer.byteOffset, buffer.byteOffset + buffer.length);
+}
+
+
 class Aes128CBC {
   constructor(keyHexStr, ivStr) {
     this._key = hex2Uint8Array(keyHexStr || 'fc3cef4b7676028bc201cdc3e80e0f5f');
@@ -34,11 +41,11 @@ class Aes128CBC {
       encrypted = Buffer.concat([encrypted, cipher.update(chunk)]);
     }
     encrypted = Buffer.concat([encrypted, cipher.final()]);
-    return encrypted;
+    return bufferToArrayBuffer(encrypted);
   }
   decrypt(encryptedDataArrayBuffer) {
-    const decipher = crypto.createDecipheriv('aes-128-cbc', this._key, this._iv);
     const encryptedData = Buffer.from(encryptedDataArrayBuffer);
+    const decipher = crypto.createDecipheriv('aes-128-cbc', this._key, this._iv);
     let decrypted = Buffer.alloc(0);
     const chunkSize = 1024;
     for (let i = 0; i < encryptedData.length; i += chunkSize) {
@@ -46,7 +53,7 @@ class Aes128CBC {
       decrypted = Buffer.concat([decrypted, decipher.update(chunk)]);
     }
     decrypted = Buffer.concat([decrypted, decipher.final()]);
-    return decrypted;
+    return bufferToArrayBuffer(decrypted);
   }
   encrypt_utf8_base64(utf8Str) {
     const inputBuffer = Buffer.from(utf8Str, 'utf8');
