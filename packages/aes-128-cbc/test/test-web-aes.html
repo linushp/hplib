@@ -16,11 +16,11 @@
     async function test() {
         const utils = new Aes128CBC('e3f9d86f1c2e834ef5bd7f25f51da093', 'e3f9d86f1c2e834ef5bd7f25f51da093');
         let input = new Uint8Array([12,34,56,32,43,23,34]);
-        console.log('1. input',input);
+        console.log('1. input',input.constructor,input);
         let a = await utils.encrypt(input);
-        console.log('1. encrypt',new Uint8Array(a));
+        console.log('1. encrypt', a.constructor, new Uint8Array(a));
         let b = await utils.decrypt(a);
-        console.log('1. decrypt',new Uint8Array(b));
+        console.log('1. decrypt',b.constructor, new Uint8Array(b));
 
         input = 'hello你好☹️hello你好☹️hello你好☹️hello你好☹️hello你好☹️hello你好☹️hello你好☹️hello你好☹️hello你好☹️hello你好☹️hello你好☹️hello你好☹️hello你好☹️hello你好☹️hello你好☹️hello你好☹️hello你好☹️hello你好☹️hello你好☹️hello你好☹️hello你好☹️hello你好☹️hello你好☹️hello你好☹️hello你好☹️hello你好☹️hello你好☹️hello你好☹️hello你好☹️'
         console.log('2. input',input);
