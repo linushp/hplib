@@ -1,0 +1,13 @@
+{
+  "name": "make-api-cache",
+  "version": "1.0.0",
+  "main": "./makeApiCache.js",
+  "browser": "./makeApiCache.js",
+  "typings": "./makeApiCache.d.ts",
+  "scripts": {
+    "build": "tsc --declaration --emitDeclarationOnly  -target es2018  ./makeApiCache.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
